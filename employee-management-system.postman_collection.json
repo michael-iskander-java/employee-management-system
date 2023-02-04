@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "5ff545e2-3e0c-4c51-93b8-d3e21d7cda0b",
+		"name": "employee-management-system-httprequestu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create_employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"Farouk Nabil\",\r\n    \"contractType\": \"PERMANENT\",\r\n \"jobTitle\": \"Software Developer\",\r\n \"birthDate\": \"08/31/1990\"\r\n\t}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/employeeApi/createEmployee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employeeApi",
+						"createEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_employee_state",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\": \"3\",\r\n\"status\": \"IN_CHECK\",\r\n\"securityCheckStatus\": \"SECURITY_CHECK_FINISHED\",\r\n\"workPermitStatus\": \"WORK_PERMIT_CHECK_PENDING_VERIFICATION\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/employeeApi/changeEmployeeState",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employeeApi",
+						"changeEmployeeState"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch_employee_details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/employeeApi/employee/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"employeeApi",
+						"employee",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
