@@ -1,0 +1,2 @@
+create table public.employee 
+(id  bigserial not null, birth_date timestamp not null, contract_type varchar(255) not null, employee_security_check_status varchar(255), employee_status varchar(255) not null, employee_work_permit_status varchar(255), job_title varchar(255) not null, name varchar(255) not null, primary key (id))

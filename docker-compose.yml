@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  postgresdb:
+    build:
+      context: ./docker/postgres
+      dockerfile: Dockerfile
+    image: 'my-postgres-db'
+    container_name: postgresdb
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: employeedb
+      HOSTIP: localhost
+  app:
+    image: 'docker-spring-boot-postgres:latest'
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    container_name: app
+    depends_on:
+      - postgresdb
+    ports:
+      - 9090:9090  
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresdb:5432/employeedb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=docker
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update 
+ 
+
+      
+
+  
